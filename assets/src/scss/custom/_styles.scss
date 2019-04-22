@@ -1,0 +1,3923 @@
+/*
+***************************************************************
+*
+* 1. Over-riding classes
+*
+***************************************************************
+*/
+
+img {
+
+    vertical-align: middle;
+    max-width: 100%;
+    height:auto;        // solve wp auto height
+}
+
+
+body {
+    
+    line-height: $body_line_height;
+    font-weight: $body_font_weight;
+    font-size: $body_font_size;
+    color: $primary_color;
+    font-family: $secondary_font_family;
+    letter-spacing:$body_letter_spacing;
+    @include transation_delay();
+}
+
+a {
+
+    color: $primary_color;
+    text-decoration: none;
+    @include transation_delay();
+}
+
+a:hover,
+a:focus,
+a:visited {
+
+    text-decoration: none;
+}
+
+a:hover {
+
+    color: $secondary_color;
+}
+
+// browser default spacing
+
+ul,
+ol {
+
+    padding: 0;
+    margin: 0;
+}
+
+
+// Kill browser default ring color 
+
+:focus {
+    
+    outline: none !important;
+} 
+
+
+// Carousel scroll fix for mobile 
+
+
+.owl-carousel .owl-stage, 
+.owl-carousel.owl-drag .owl-item {
+
+    -ms-touch-action: auto;
+    -webkit-touch-action: auto;
+    -o-touch-action: auto;
+    -moz-touch-action: auto;
+    touch-action: auto;
+}
+
+
+// Solves figure auto width & height issue
+
+figure {
+
+    width:100%;
+    max-width:100%;
+    height:auto;
+}
+
+
+/*
+***************************************************************
+*
+* 2. Common classes
+*
+***************************************************************
+*/
+
+
+// buttons 
+
+a.btn_general {
+    
+    display:inline-block;
+    padding:13px 30px;
+    border:1px solid $primary_color;
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:bold;
+    text-align:center;
+    letter-spacing:1px;
+    line-height:1;
+
+
+    &:hover {
+
+        border-color:$secondary_color;
+        background:$secondary_color;
+        color:$white;
+    } 
+}
+
+
+// Container 
+
+.mb_container {
+
+    position: relative;
+    max-width: 1170px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+}
+
+
+// boxed layout ( condition )
+
+.page_wrap {
+    
+    position:relative;
+    z-index:2;
+    background:$white;
+    margin:0 auto;
+}
+
+body.boxed .page_wrap {
+    
+    max-width: 1200px;
+    width: 100%;
+}
+
+body.boxed {
+
+    background-attachment:fixed;
+    background-size:cover;
+    background-position:top;
+    background-repeat:no-repeat;
+}
+
+body.boxed .mb_container {
+    
+    max-width: 1200px;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+// Middle portion wrap ( Holds left & right sidebar )
+
+.mid_portion_wrap {
+
+    margin:30px 0 60px 0;
+}
+
+.mid_portion_wrap.frontpage_mid_wrap {
+
+    margin:30px 0 30px 0;
+}
+
+
+// Custom row & Col 
+
+.custom_row {
+
+    margin-left: -15px;
+    margin-right:-15px;
+}
+
+.custom_row::before {
+
+    content:'';
+    display:table;
+}
+
+.custom_row::after {
+
+    content:'';
+    clear:both;
+}
+
+.col {
+    
+    float:left;
+    width:50%;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+
+// mask 
+
+.mask {
+ 
+    @include mask();
+}
+
+
+
+// Image Hover Animation
+
+
+.imghover img {
+    
+    @include transation_delay;
+}
+
+.imghover {
+
+    position: relative;
+    overflow: hidden;
+   
+}
+
+
+.imghover:hover img  {
+
+   @include scale();
+}
+
+
+// Post Metas
+
+
+.post_meta {
+
+    list-style: none;
+    margin:10px 0;
+}
+
+.post_meta li {
+
+    display: inline-block;
+
+    span {
+        
+        display:inline-block;        
+        padding-right:5px;
+        font-size:12px;
+
+    }
+
+    a {
+        display: inline-block;
+        position: relative;
+        color: $primary_color;
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    a:hover {
+
+       color: $secondary_color;
+   }
+}
+
+.post_meta li a::before {
+
+    display: inline-block;
+    position:absolute;
+    top:47%;
+    transform:translateY(-50%);
+    left:0;
+    content: '';
+    font-family: 'fontAwesome';
+    vertical-align: middle;
+    font-size: 12px;
+  
+}
+
+.post_meta li.posted_in a {
+
+    padding: 0 3px;
+    margin-right:0;
+}
+
+.post_meta li.comments a {
+
+    padding-left:16px;
+}
+
+.post_meta li.comments a::before {
+
+    content: '\f075';
+}
+
+
+// Category  
+
+.entry_cats {
+
+    display:block;
+}
+
+ul.post-categories {
+
+    list-style: none;
+
+    li {
+
+        display:inline-block;
+        margin-right: 1px;
+
+        a {
+
+            color:$white;
+            font-size:12px;
+            border:1px solid $secondary_color;
+            background:$secondary_color;
+            padding: 5px 10px;
+            line-height:22px;
+
+            &:hover {
+
+                color:$white;
+                border-color:$primary_color;
+                background:$primary_color;
+            }    
+        }
+    }       
+}
+
+
+// social icons non selector 
+
+.social_icons_list {
+
+   list-style:none; 
+}
+
+.social_icons_list li {
+
+    display:inline-block;
+}
+
+.social_icons_list li a {
+    
+    display:inline-block;
+    line-height:30px;
+    height:30px;
+    width:30px;
+    color:$primary_color;
+
+    &:hover {
+
+        color:$secondary_color;
+    }
+}
+
+
+
+// Cards & box
+
+.card_content, 
+.box_content {
+
+    padding: 30px 20px;
+}
+
+.card,
+.box {
+
+    position: relative;
+    margin-bottom:30px;
+}
+
+
+// Section styles
+
+.section_title {
+
+    position:relative;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+.section_title h2 {
+
+    position:relative;
+    padding-bottom:10px;
+    font-size:$typo_large;
+    font-weight: bold;    
+}
+
+
+// Post styles 
+
+.post_title h2, 
+.post_title h3, 
+.post_title h4 {
+
+    position:relative;
+    margin-bottom:20px;
+}
+
+// Page title 
+
+
+.page_title {
+
+    margin-bottom:40px;
+}
+
+.page_title h1,
+.page_title h2,
+.page_title h3 {
+
+    font-size:36px;
+}
+
+
+// Post formates 
+
+.post_media {
+
+    position:relative;
+    overflow:hidden;
+}
+
+
+// Post formate icon ( Display post formate icon at Front-End )
+
+
+.is_postformate {
+
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index: 10;
+}
+
+.is_postformate a {
+
+    display:inline-block;
+
+}
+
+.is_postformate a {
+    
+    color:$white;
+    line-height:40px;
+    width:40px;
+    height:40px;
+    border:1px solid $white;
+    border-radius:0;
+    font-size:17px;
+    text-align: center;
+
+    &:hover {
+
+        border-color:$secondary_color;
+        background:$secondary_color;
+        color:$white;
+    }
+}
+
+
+// Excerpts 
+
+.excerpt p {
+
+    color:$special_text_color;
+}
+
+
+// Back to top
+
+#toTop {
+
+    position: fixed;
+    z-index: 9999999;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+    background: $secondary_color;
+    color: $white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 2px;
+    outline: none;
+    @include transation_delay(); 
+
+    i {
+
+        font-size: 18px;
+    }
+}
+
+
+#toTop:hover {
+
+    background: $primary_color;
+}
+
+
+// Owl navs 
+
+.owl-carousel .owl-nav {
+
+    button.owl-prev, 
+    button.owl-next {
+
+    line-height: 35px;
+    width: 35px;
+    height: 35px;
+    margin: 0 2px;
+    background:$secondary_color;
+    text-align: center;
+    outline: none;
+    @include transation_delay();
+
+    i {
+
+         color:$white;
+         font-size: 16px;
+         line-height: 35px;
+    }
+
+    &:hover {
+
+        background:$primary_color;
+    }
+
+    }
+}
+
+// header sticky 
+
+.sticky-wrapper {
+
+    margin-bottom:30px;
+}
+
+.sticky-wrapper .main_navigation {
+
+    margin-bottom:0;
+}
+
+.mb_stickhead {
+    
+    position:relative;
+    @include transation_delay();
+}
+
+.is-sticky .mb_stickhead {
+
+    position:fixed;
+    z-index: 999999999 !important;
+}
+
+
+/*
+***************************************************************
+*
+* #. General Header styles  
+*
+***************************************************************
+*/
+
+
+.mastheader .header_top {
+
+    padding:10px 0;
+}
+
+
+// border for mastheader in Header layout 1,2, 
+
+
+body .mastheader {
+
+    border-bottom:1px solid #eeeeee;
+}
+
+body.home .mastheader {
+
+    border-bottom:none;
+}
+
+.mastheader .header_top {
+
+    border-bottom:1px solid rgba( 255,255,255,0.1);
+}
+
+.mastheader .primary_navigation.dark {
+
+    background: transparent;
+} 
+
+.mastheader .header_top_entry .col {
+
+    width:30%;
+}
+
+.mastheader .header_top_entry .nav_col {
+
+    width:70%;
+}
+
+.mastheader .header_top_entry .primarynav_search_icon {
+
+    display:none;
+}
+
+.mastheader .primary_navigation li a {
+
+    letter-spacing:0.35px;
+    font-size:13px;
+    text-transform: uppercase;
+}
+
+.mastheader .primary_navigation>ul>li>a {
+
+    padding: 0 10px;
+    line-height:30px;
+}
+
+.mastheader .header_top_entry .social_icons_list {
+
+    text-align:right;
+}
+
+.mastheader .header_top_entry .social_icons_list li a {
+
+    text-align:center;
+    color:$white;
+}
+
+.mastheader .header_top_entry .social_icons_list li a:hover {
+
+    color:$header_text_hover_color;
+}
+
+// logo area
+ 
+
+.mastheader .site_idty_entry {
+
+    text-align:center;
+    padding:35px 0;
+}
+
+.mastheader .logo h1 {
+    
+    font-size:52px;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.mastheader .logo h1 a {
+
+    color:$white;
+
+    &:hover {
+
+        color:#eee;
+    }
+}
+
+.mastheader .logo a {
+
+    display:inline-block;
+    
+    &:hover {
+
+        color:$secondary_color;
+    }
+}
+
+.mastheader .logo .site-description {
+
+    letter-spacing: 1.5px;
+    text-transform:uppercase;
+    font-size:13px;
+    color:$special_purpose_color;
+}
+
+
+// Header search 
+
+.header_search {
+
+   position:relative;
+   display:none;
+
+}
+
+.header_search form {
+   
+   position:absolute;
+   top:15px;
+   right:0;
+   z-index:10;
+   width:400px;
+   max-width:100%;
+   background: $white;
+   padding: 20px;
+   overflow: auto;
+   animation: 0.3s 0s fadeInUp both;
+   @include drop_shadow(); 
+}
+
+.header_search input[type="search"], 
+.header_search input[type="submit"] {
+    
+    position: relative;
+    height: 42px;
+    outline: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    padding-left: 15px;
+    border: none;
+    border-radius: 0;
+}
+
+.header_search input[type="search"] {
+        
+    float:left;
+    width: calc(100% - 80px);
+    border-top: 1px solid $border_color;
+    border-bottom: 1px solid $border_color;
+    border-left: 1px solid $border_color;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;    
+}
+
+.header_search input[type="submit"] {
+
+    float: right;
+    background: $secondary_color;
+    color: $white;
+    width: 80px;
+    font-weight: 400;
+    line-height: inherit;
+    padding: 0 15px;
+    border-radius: 0;
+    cursor:pointer;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+
+// widget spacing at header 
+
+.mastheader .widget {
+
+    margin-bottom:0;
+}
+
+
+
+/*
+==================================================================
+=
+= # Header layout 3 
+=
+==================================================================
+*/
+
+
+
+body .mastheader.header_style3 {
+
+    border-bottom:none;
+    background:$secondary_color;
+}
+
+.mastheader.header_style3 .secondary_nav ul {
+
+    list-style:none;
+}
+
+.mastheader.header_style3 .secondary_nav ul li {
+
+    display:inline-block;
+    margin-right:15px;
+}
+
+.mastheader.header_style3 .secondary_nav ul li:last-child {
+
+    margin-right:0;
+}
+
+.mastheader.header_style3 .secondary_nav ul li a {
+
+    line-height:30px;
+    text-transform:capitalize;
+    letter-spacing:0;
+    font-size:16px;
+    font-weight:normal;
+    color:$white;
+}
+
+.mastheader.header_style3 .secondary_nav ul li a:hover {
+
+    color:$header_text_hover_color;
+}
+
+.mastheader.header_style3 .site_idty_entry {
+
+    padding:50px 0;
+}
+
+.mastheader.header_style3 .logo h1 {
+
+    font-size:42px;
+}
+
+.mastheader.header_style3 .logo .site-description {
+
+    text-transform:capitalize;
+    color:#b7b7b7;
+    letter-spacing:0;
+    font-size:15px;
+}
+
+.mastheader.header_style3 .main_navigation {
+
+    background: $menu_bar_bg;
+    margin-bottom: 30px;
+    @include header_drop_shadow();
+}
+
+.mastheader.header_style3 .sticky-wrapper .main_navigation {
+
+    margin-bottom:0;
+}
+
+.mastheader.header_style3 .primary_navigation>ul {
+
+    text-align:center;
+}
+
+.mastheader.header_style3 .primary_navigation>ul>li>a {
+    
+    padding: 0 15px;
+    line-height:60px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.mastheader.header_style3 .primary_navigation.dark li a {
+
+    color:$white;
+}
+
+.mastheader.header_style3 .primary_navigation.dark li a:hover {
+
+    background:$secondary_color;
+}
+
+.mastheader.header_style3 .primarynav_search_icon {
+
+    float:right;
+}
+
+
+
+
+/*
+***************************************************************
+*
+* 4. Banner styles  
+*
+***************************************************************
+*/
+
+
+.mb_banner {
+
+    margin-bottom:30px;
+}
+
+.mb_banner .owl-nav {
+
+    position:absolute;
+    right:20px;
+    top:20px;
+
+}
+
+.mb_banner .owl-carousel .owl-nav button.owl-prev {
+
+    left:10px;
+}
+
+.mb_banner .owl-carousel .owl-nav button.owl-next {
+
+    right:10px;
+}
+
+.mb_banner .card {
+    
+    margin:0;
+}
+
+.mb_banner .card_content {
+    
+    display:block;
+    @include position_absolute(50%,unset,0,0);
+    text-align:center;
+    max-width:600px;
+    background:$white;
+    padding:40px 10px;
+    margin:0 auto;
+}
+
+.mb_banner .mb_banner_style_1:hover .mask {
+
+    background: rgba(0,0,0,0.6);
+}
+
+.mb_banner .entry_cats {
+
+    margin-bottom:10px;
+}
+
+.mb_banner ul.post-categories li a {
+
+    background:$secondary_color;
+    text-transform:uppercase;
+    border:none;
+    line-height:1;
+    color:$white;
+
+    &:hover {
+
+        background:$primary_color;
+        
+    }
+}
+
+.mb_banner .post_title h2 {
+
+    font-size:$typo_large;
+    margin-top:20px;
+}
+
+
+
+
+/*
+***************************************************************
+*
+* 5. Featured styles  ( Under banner )
+*
+***************************************************************
+*/
+
+.mb_featured .card {
+
+    margin-bottom:0;
+    padding:0;
+}
+
+.mb_featured .post_thumb {
+
+    position:relative;
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 5.2 Featured layout three 
+*
+----------------------------------------------------------------
+*/
+
+
+.featured_style_3 .card_content {
+
+    background:$section_bg;
+    padding:30px 20px;
+}
+
+.featured_style_3 ul.post-categories {
+
+    margin-bottom:20px;
+}
+
+.featured_style_3 ul.post-categories li a {
+    
+    display:inline-block;
+    background:$secondary_color;
+    color:$white;
+    border:none;
+    text-transform:uppercase;
+    letter-spacing:0;
+    margin:0;
+    line-height:1;
+
+    &:hover {
+
+        background:$primary_color;
+    }
+}
+
+.featured_style_3 .post_title h2 {
+
+    font-size:$typo_big;
+    margin-bottom:15px;
+}
+
+.featured_style_3 .post_title h2::after {
+
+    content:'';
+    margin:0;
+}
+
+.featured_style_3 .post_meta li a {
+
+    text-transform: capitalize;
+    font-size:14px;
+    letter-spacing: 0;
+}
+
+.featured_style_3 .owl-nav {
+
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+
+.featured_style_3 .owl-carousel .owl-nav button.owl-prev,
+.featured_style_3 .owl-carousel .owl-nav button.owl-next {
+    
+
+    line-height:30px;
+    height:30px;
+    width:30px;
+
+    i {
+
+        font-size: 14px;
+        line-height: 30px;
+        //color:$primary_color;
+    }
+}
+
+
+/*
+***************************************************************
+*
+* 6. Recent Post section 
+*
+***************************************************************
+*/
+
+.recent_posts_holder article .top_box_content {
+
+    text-align:left;
+   
+}
+
+.recent_posts_holder .post_title h2,
+.recent_posts_holder .post_title h3 {
+
+    margin-top: 25px;
+    margin-bottom:10px;
+    font-size:$typo_big;
+}
+
+.recent_posts_holder .meta ul {
+
+    margin:20px 0;
+}
+
+.recent_posts_holder .meta .post_meta li a {
+
+    font-size:14px;
+}
+
+.recent_posts_holder article .excerpt {
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.recent_posts_holder article .the_permalink {
+
+    text-align:left;
+}
+
+
+// first article
+
+
+.recent_posts_holder .first_article .first_post_holder {
+
+    background:$section_bg;
+    padding:30px;
+}
+
+
+.recent_posts_holder .first_article .post_title h2,
+.recent_posts_holder .first_article .post_title h3 {
+
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.recent_posts_holder .first_article .post_meta li.posted_date a {
+
+    text-transform:capitalize;
+}
+
+.recent_posts_holder .first_article .extra {
+
+    margin-top:30px;
+    margin-bottom:0;
+}
+
+.recent_posts_holder .first_article .extra .post_meta {
+
+    margin:0;
+}
+
+
+.recent_posts_holder .first_article .extra .social_sharing ul li {
+
+    margin-right:15px;
+}
+
+.recent_posts_holder .first_article .extra .social_sharing ul li:last-child {
+
+    margin-right:0;
+}
+
+.recent_posts_holder .first_article .the_permalink a {
+
+    background: $secondary_color;
+    color:$white;
+    border:none;
+    font-weight:normal;
+    padding: 17px 35px;
+
+    &:hover {
+
+        background:$primary_color;
+        color:$white;
+    }
+}
+
+
+// No sidebar case
+
+
+.no_sidebar .recent_posts_holder .first_article {
+
+    float:left;
+    width:50%;
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom: 40px;
+}
+
+
+
+/*
+----------------------------------------------------------------
+*
+* 6.1 Recent post layout one ( Grid ) 
+*
+----------------------------------------------------------------
+*/
+
+
+.mb_rp_grid_style .card {
+    
+    text-align:center;
+}
+
+.mb_rp_grid_style .card_content {
+
+    padding: 30px 15px 0 15px;
+}
+
+.mb_rp_grid_style .post_title h3 {
+
+    margin-bottom:20px;
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 6.3 Recent post layout three ( masonry ) 
+*
+----------------------------------------------------------------
+*/
+
+.mb_rp_brick_grids {
+
+    margin-left:-15px;
+    margin-right:-15px;
+}
+
+.bricks_items {
+
+    width:50%;
+    padding:0 15px;
+    float:left;
+    text-align:left;
+}
+
+.card.bricks_items .card_content {
+
+    padding:30px 20px;
+    background:$section_bg;
+}
+
+
+// bricks items with no sidebar 
+
+.no_sidebar .bricks_items {
+
+    width:33.333333%
+}
+
+
+
+/*
+***************************************************************
+*
+* 8. Instagram feeds ( above footer )
+*
+***************************************************************
+*/
+
+
+.mb_instagram .feeds_entry {
+
+     position:relative;
+}
+
+.mb_instagram .feeds_entry ul {
+    
+   
+    display:block;
+    list-style:none;
+}
+
+.mb_instagram .feeds_entry ul li {
+    
+   display:block;
+   float:left;
+   width:16.666666%;
+   overflow:hidden;
+}
+
+.mb_instagram .feeds_entry .follow a {
+    
+    overflow:hidden;
+    display:inline-block;
+    padding:10px 25px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:13px;
+    font-weight:bold;
+    margin:0 auto;
+    background:$white;
+    color:$primary_color;
+    text-align:center;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    
+    &:hover {
+
+        background:$secondary_color;
+        color:$white;
+    }
+}
+
+
+
+/*
+----------------------------------------------------------------
+*
+* 8.1 Insta feed widget at sidebar & footer
+*
+----------------------------------------------------------------
+*/
+
+
+aside .mb_instafeed_widget,
+footer .mb_instafeed_widget {
+
+    text-align:center;
+}
+
+aside .mb_instafeed_widget ul,
+footer .mb_instafeed_widget ul {
+    
+    display:block;
+    list-style:none;
+    margin:-5px;
+}
+
+aside .mb_instafeed_widget ul li,
+footer .mb_instafeed_widget ul li {
+
+    float:left;
+    width:33.333333%;
+    padding:5px;
+}
+
+aside .mb_instafeed_widget .follow,
+footer .mb_instafeed_widget .follow {
+
+    margin-top:30px;
+}
+
+aside .mb_instafeed_widget .follow a,
+footer .mb_instafeed_widget .follow a {
+
+    display:block;
+    background:transparent;
+    border:1px solid $primary_color;
+    padding:5px 10px;
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing: 1px;
+    font-weight:bold;
+
+    &:hover {
+        
+        color:$white;
+        border:1px solid $secondary_color;
+        background:$secondary_color;
+    }
+}
+
+
+
+
+/*
+***************************************************************
+*
+* 9. Footer 
+*
+***************************************************************
+*/
+
+footer {
+    
+    position:relative;
+    background-color:$footer_bg; // dark footer 
+}
+
+footer .widget .widget-title {
+
+    text-align:left;
+}
+
+footer .widget .widget-title h3 {
+
+    position:relative;
+    font-size:$typo_medium;
+    letter-spacing:2px;
+    padding: 0;
+    padding-bottom:10px;
+    background:transparent;
+}
+
+
+// Footer top 
+
+.mb_topfooter {
+
+    padding:30px 0;
+    text-align:center;
+}
+
+
+.mb_topfooter .social_icons_list li a {
+    
+    color:$footer_section_links_color;
+    border-radius:50%;
+    margin-right:40px;
+    line-height:1;
+    height:auto;
+    width:auto;
+    text-transform:uppercase;
+    font-size:13px;
+
+    i {
+
+        margin-right:3px;
+    }
+
+    &:hover {
+
+        color:$white;
+    }
+}
+
+.mb_topfooter .social_icons_list li:last-child a {
+
+    margin-right:0;
+}
+
+
+// Middle footer ( widget area )
+
+.mb_midfooter {
+
+    padding-top:30px;
+    padding-bottom: 60px;
+    border-top:1px solid $border_color; 
+}
+
+
+// Bottom footer ( Copyright & navigation )
+
+
+footer .mb_bottomfooter {
+    
+    background:$footer_bottom_bg;
+    padding: 15px 0 10px 0;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.55);
+}
+
+footer .mb_bottomfooter .left_col {
+
+    width:60%;
+}
+
+footer .mb_bottomfooter .right_col {
+
+    width:40%;
+}
+
+footer .mb_bottomfooter .copyright p {
+    
+    font-size:16px;
+    letter-spacing:0;
+}
+
+
+footer.dark .mb_bottomfooter .copyright p {
+
+    color:$white;
+    
+}
+
+footer.dark .mb_bottomfooter .copyright p a {
+
+    color:#fd861d;
+
+    &:hover {
+
+        color:$white;
+    }
+}
+
+footer .mb_bottomfooter .footer_nav ul {
+
+    list-style:none;
+    text-align:right;
+}
+
+footer .mb_bottomfooter .footer_nav ul li {
+
+    display:inline-block;
+    margin-right:10px;
+}
+
+footer .mb_bottomfooter .footer_nav ul li:last-child {
+
+    margin-right:0;
+}
+
+footer .mb_bottomfooter .footer_nav ul li a {
+
+    color:$white;
+    letter-spacing:0;
+    font-size:16px;
+
+    &:hover {
+
+        color:$secondary_color;
+    }
+}
+
+
+// Tags cloud in footer 
+
+footer .widget_tag_cloud .tagcloud a {
+
+    font-weight:400;
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 9.1 Dark footer 
+*
+----------------------------------------------------------------
+*/
+
+footer.dark .mb_midfooter {
+
+    border-top:1px solid $footer_section_border;
+}
+
+footer.dark .widget .widget-title h3 {
+
+    color:$footer_heading_color;
+}
+
+footer.dark .widget h1,
+footer.dark .widget h2,
+footer.dark .widget h3,
+footer.dark .widget h4,
+footer.dark .widget h5,
+footer.dark .widget h6,
+footer.dark .widget p,
+footer.dark .widget strong,
+footer.dark .widget cite,
+footer.dark .widget span,
+footer.dark .widget sup,
+footer.dark .widget sub,
+footer.dark .widget li,
+footer.dark .widget table {
+
+    color:$footer_section_text_color;
+}
+
+footer.dark .widget a,
+footer.dark .mb_lastestpost_widget .post_meta li a {
+
+    color:$footer_section_links_color;
+
+    &:hover {
+
+        color:$secondary_color;
+    }
+}
+
+
+footer.dark .widget div {
+
+    background:transparent;
+}
+
+
+// Author widget 
+
+footer.dark .mb_author_widget .author_bio a {
+
+    border-color:rgba(255,255,255,0.5);
+}
+
+// Instafeed widget 
+
+footer.dark .mb_instafeed_widget .follow a {
+
+    border-color:$footer_section_border;
+    background:$footer_special_bgcolor;
+
+    &:hover {
+
+        background:$secondary_color;
+        border-color:$secondary_color;
+        color:$white;
+    }
+}
+
+
+// Custom category widget 
+
+footer.dark .mb_cus_cats_widget ul li a {
+
+    color:$primary_color;
+
+    &:hover {
+
+        color:$white;
+    }
+}
+
+// Hover color on footer ancours ( alt case )
+
+footer.dark .mb_topfooter .social_icons_list li a:hover {
+
+    color:$secondary_color;
+}
+
+
+// Selectric drop down styles 
+
+footer.dark .selectric,
+footer.dark .selectric-items {
+
+    border-color:$footer_section_border;
+}
+
+footer.dark .selectric .button {
+
+    color:$footer_section_text_color;
+    background:$footer_special_bgcolor;
+}
+
+footer.dark .selectric-items li.highlighted,
+footer.dark .selectric-items .selectric-scroll {
+
+    background:$footer_special_bgcolor;
+}
+
+footer.dark .selectric-items li:hover {
+
+    background:$secondary_color;
+}
+
+
+// Dark footer all default widget 
+
+footer.dark .widget_archive li, 
+footer.dark .widget_categories li, 
+footer.dark .widget_recent_entries li, 
+footer.dark .widget_meta li, 
+footer.dark .widget_recent_comments li, 
+footer.dark .widget_rss li, 
+footer.dark .widget_pages li, 
+footer.dark .widget_nav_menu li a, 
+footer.dark .widget_product_categories li {
+
+    border-color:$footer_section_border;
+}
+
+footer.dark .widget_tag_cloud .tagcloud a {
+
+    background:$footer_special_bgcolor;
+    color:$footer_section_links_color;
+    font-weight: 500;
+
+    &:hover {
+
+        background:$secondary_color;
+        color:$white;
+    }
+}
+
+
+footer.dark .calendar_wrap caption {
+
+    background:$footer_special_bgcolor;
+}
+
+footer.dark .calendar_wrap table th,
+footer.dark .calendar_wrap table td,
+footer.dark .widget_categories li,
+footer.dark .widget_archive li { 
+
+    border-color:$footer_section_border;
+}
+
+
+
+/*
+***************************************************************
+*
+* 10. Sidebar Widgets ( Custom widgets )
+*
+***************************************************************
+*/
+
+
+.widget {
+
+    margin-bottom:30px;
+}
+
+.widget .widget-title {
+
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.widget .widget-title h3 {
+    
+    font-family:$secondary_font_family;
+    background:$secondary_color;
+    color:$white;
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+    padding:12px 10px;
+    letter-spacing:1px;
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 10.1 Author widget ( Custom widget )
+*
+----------------------------------------------------------------
+*/
+
+
+.mb_author_widget .widget_content {
+
+    text-align:left;
+}
+
+.mb_author_widget .author_name {
+
+    margin-top:20px;
+    margin-bottom:15px;
+}
+
+.mb_author_widget .author_name h4 {
+    
+    text-transform:capitalize;
+    font-size:28px;
+    letter-spacing:1px;
+}
+
+.mb_author_widget .author_bio {
+
+    margin-bottom:30px;
+}
+
+.mb_author_widget .author_bio p {
+
+    margin-bottom:15px;
+}
+
+.mb_author_widget .author_bio a {
+
+    display:inline-block;
+    text-transform:uppercase;
+    letter-spacing:1.30px;
+    font-size:13px;
+    font-weight:bold;
+    padding-bottom:2px;
+    border-bottom:1px solid $secondary_color;
+}
+
+
+
+/*
+----------------------------------------------------------------
+*
+* 10.3 Latest post widget 
+*
+----------------------------------------------------------------
+*/
+
+
+.mb_lastestpost_widget .left_box {
+    
+    float:left;
+    width:30%;
+}
+
+.mb_lastestpost_widget .right_box {
+
+    float:left;
+    width:70%;
+    padding-left:20px;
+}
+
+.mb_lastestpost_widget .post_details h4 {
+
+    font-family:$secondary_font_family;
+    font-size:$body_font_size;
+    text-transform:capitalize;
+    line-height:24px;
+    font-weight:normal;
+}
+
+.mb_lastestpost_widget .post_meta li a {
+
+    text-transform: capitalize;
+    letter-spacing: 0;
+    font-size: 13px;
+    color:$special_purpose_color;
+
+    &:hover {
+
+        color:$secondary_color;
+    }
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 10.4 Custom category widget ( with category image ) 
+*
+----------------------------------------------------------------
+*/
+
+
+.mb_cus_cats_widget ul {
+
+    list-style:none;
+} 
+
+.mb_cus_cats_widget ul li {
+
+    display:block;
+    position: relative;
+    margin-bottom:30px;
+    max-width: 100%;
+    width: 100%;
+    height:80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align:center;
+}
+
+.mb_cus_cats_widget ul li a {
+    
+    display:inline-block;
+    position:absolute;
+    z-index: 10;
+    left:50%;
+    top:50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    padding:7px 20px;
+    background: rgba(255,255,255,0.8);
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1.35px;
+    
+    &:hover {
+        
+        color:$white;
+        background:$secondary_color;
+    }
+}
+
+
+
+/*
+***************************************************************
+*
+* 11. Pagination  
+*
+***************************************************************
+*/
+
+
+.mb_pagination {
+
+    margin: 30px 0;
+}
+
+.mb_pagination .nav-links {
+
+    width:100%;
+}
+
+
+
+/*
+----------------------------------------------------------------
+*
+* 11.3 Pagination style 3  
+*
+----------------------------------------------------------------
+*/
+
+.mb_pagination .pagi_style3 {
+
+    text-align:center;
+}
+
+.mb_pagination .pagi_style3 .nav-links {
+
+    display:inline-block;
+    background:$section_bg;
+    padding: 20px 35px;
+    width:auto;
+}
+
+.mb_pagination .pagi_style3 .nav-links a,
+.mb_pagination .pagi_style3 .nav-links span {
+
+    display:inline-block;
+    font-weight:normal;
+    letter-spacing:0.35px;
+    text-transform:capitalize;
+    font-size:16px;
+    margin-right:15px;
+}
+
+.mb_pagination .pagi_style3 .nav-links span.current {
+
+    text-decoration: line-through;
+    font-weight:bold;
+}
+
+
+/*
+***************************************************************
+*
+* 12. Breadcrumb 
+*
+***************************************************************
+*/
+
+
+.mb_breadcrumb {
+
+    margin-bottom:20px;
+}
+
+.mb_breadcrumb ul {
+
+    list-style:none;
+}
+
+.mb_breadcrumb ul li {
+
+    display:inline-block;
+}
+
+.mb_breadcrumb ul li a {
+
+    display:inline-block;
+    line-height:1;
+    font-size:14px;
+    text-transform:capitalize;
+    letter-spacing:1px;
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 12.1 Breadcrumb style one 
+*
+----------------------------------------------------------------
+*/
+
+.breadtrails_style1 ul li a {
+
+   margin-right:5px;
+   color:$special_purpose_color;
+
+   &:hover {
+
+        color:$secondary_color;
+   } 
+}
+
+.breadtrails_style1 ul li:last-child a {
+
+    margin-right:0;
+}
+
+.breadtrails_style1 ul li a::after {
+    
+    content:'/';
+    display:inline-block;
+    margin-left: 5px;
+    
+}
+
+.breadtrails_style1 ul li:last-child a::after {
+
+    content:'';
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 12.3 Breadcrumb style two 
+*
+----------------------------------------------------------------
+*/
+
+.breadtrails_style3 {
+
+    @extend .breadtrails_style1;
+
+    background:$section_bg;
+    padding: 15px 20px;
+}
+
+.mb_breadcrumb.breadtrails_style3 {
+
+    margin-bottom:30px;
+}
+
+
+
+/*
+***************************************************************
+*
+* 13. 404 error page 
+*
+***************************************************************
+*/
+
+.errorpage_entry {
+
+    text-align:center;
+    padding: 100px 0;
+}
+
+.errorpage_entry .error_head {
+
+    margin-bottom:30px;
+}
+
+.errorpage_entry .error_head h2 {
+
+    font-size:132px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-weight:bold;
+    font-family:Arial,Roboto, sans-serif;
+    color:$secondary_color;
+}
+
+.errorpage_entry .error_head h3 {
+
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:$typo_big;
+    font-weight:bold;
+    font-family:Arial,Roboto, sans-serif;
+}
+
+.errorpage_entry .error_message {
+
+    margin-bottom:30px;
+}
+
+.error_action a.btn_general {
+
+    border:2px solid $primary_color;
+    padding:13px 40px;
+
+    &:hover {
+
+        border-color:$secondary_color;
+    }
+}
+
+
+/*
+***************************************************************
+*
+* 14. Nothing found page 
+*
+***************************************************************
+*/
+
+.nf_search {
+
+    @extend .header_search;
+    display:block;
+    
+}
+
+.nfpage_entry .nf_message {
+
+    margin-bottom:30px;
+}
+
+.nf_search form {
+
+    position: relative;
+    top: unset;
+    right: unset;
+    z-index: 10;
+    max-width: 600px;
+    width: 100%;
+    padding:0;
+    border-top: none;
+    overflow: auto;
+    animation: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+.nf_search input[type="search"],
+.nf_search input[type="submit"] {
+
+    height:43px;
+}
+
+
+/*
+***************************************************************
+*
+* 15. Search page  
+*
+***************************************************************
+*/
+
+.searchpage_entry .post_title h3 {
+
+    font-size:$typo_big;
+}
+
+.searchpage_contents_holder .card ul.post-categories {
+
+    margin-bottom:20px;
+}
+
+
+/*
+***************************************************************
+*
+* 16. Archive/List page  
+*
+***************************************************************
+*/
+
+// No custom styles cheers :)  
+
+
+/*
+***************************************************************
+*
+* 17. Page ( standard page )  
+*
+***************************************************************
+*/
+
+
+// Here we style all components that comes from visual & text editor
+
+.editor_contents {
+    
+    a {
+
+        color:$secondary_color;
+    }
+
+    b,
+    strong {
+
+        font-weight: bold;
+    }
+
+    dfn {
+
+        font-style: italic;
+    }
+
+    mark {
+
+        background: #ff0;
+        color: #111111;
+    }
+
+    small {
+
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+
+    sup {
+
+        top: -0.5em;
+    }
+
+    sub {
+
+        bottom: -0.25em;
+    }
+
+    img {
+
+        border: 0;
+    }
+
+    pre {
+
+        overflow: auto;
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+
+        font-family: monospace, monospace;
+    }
+
+    fieldset {
+
+        border: 1px solid $border_color;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+    }
+
+    q {
+        font-style: italic;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    legend {
+
+        border: 0;
+        padding: 0;
+    }
+
+    textarea {
+
+        overflow: auto;
+    }
+
+    optgroup {
+
+        font-weight: bold;
+    }
+
+    table {
+
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    td, th,
+    td, th, .mce-item-table, .mce-item-table td, .mce-item-table th, .mce-item-table caption {
+
+        padding: 10px 15px;
+        border: 1px solid $border_color;
+        text-align: left;
+    }
+
+
+   // Typo for editor 
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0 0 10px 0;
+        font-weight: 600;
+        color: $primary_color;
+        line-height: 1.5;
+    }
+
+    p {
+       margin: 0 0 15px 0;
+    }
+
+    dfn,
+    cite,
+    em,
+    i {
+
+        font-style: italic;
+    }
+
+    blockquote {
+
+        text-align: center;
+        position: relative;
+        margin:30px 0 30px 0;
+        padding:30px;
+        font-size: 16px;
+        font-weight: normal;
+        background:#eeeeee;
+    }
+
+    blockquote cite {
+
+        font-size: 18px;
+        line-height: 1.89;
+        color: #999999;
+    }
+
+    blockquote cite {
+
+        display: block;
+        margin-top: 7px;
+    }
+
+    address {
+
+        margin: 0 0 15px;
+    }
+
+    pre {
+
+        background: #eeeeee;
+        font-family: "Courier 10 Pitch", Courier, monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        max-width: 100%;
+        overflow: auto;
+        padding: 15px;
+    }
+
+    code,
+    kbd,
+    tt,
+    var {
+
+        font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+        font-size: 15px;
+    }
+
+    abbr,
+    acronym {
+        border-bottom: 1px dotted $border_color;
+        cursor: help;
+    }
+
+    mark,
+    ins {
+
+        background: #f5f5f5;
+        text-decoration: none;
+    }
+
+    big {
+
+        font-size: 125%;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+
+        content: "";
+    }
+
+
+    blockquote:before {
+
+        content: "\201c";
+        font-family: "Arial", "Times New Roman";
+        display: block;
+        font-size: 93px;
+        line-height: 50px;
+        font-weight: bold;
+    }
+
+    blockquote:before {
+
+        color: #3a85eb;
+    }
+
+    hr {
+
+        background-color: #ECECEE;
+        border: 0;
+        height: 1px;
+        margin: 60px 0;
+        clear: both;
+    }
+
+    ul,
+    ol {
+
+        margin: 0 0 15px 0;
+        padding: 0 0 0 15px;
+    }
+
+    ul {
+
+        list-style: disc;
+    }
+
+    ol {
+
+        list-style: decimal;
+    }
+
+    ol li,
+    ul li {
+    
+        padding:7px 0;
+    } 
+
+    li > ul,
+    li > ol {
+
+        margin-bottom: 0;
+        margin-left: 15px;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin: 0 15px 15px;
+    }
+
+    img {
+
+        height: auto; 
+        max-width: 100%; 
+        vertical-align: middle;
+    }
+
+    figure {
+
+        margin: 15px 0; 
+    }
+
+    table {
+
+        margin: 0 0 15px;
+        width: 100%;
+    }
+
+    // aligments 
+
+    .alignleft {
+
+        display: inline;
+        float: left;
+        margin-right: 50px;
+    }
+
+    .alignright {
+
+        display: inline;
+        float: right;
+        margin-left: 50px;
+    }
+
+    .aligncenter {
+
+        clear: both;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+    }
+
+    .text-alignleft {
+
+        text-align: left;
+    }
+
+    .text-alignright {
+
+        text-align: right;
+    }
+
+    .text-aligncenter {
+
+        text-align: center;
+
+    }
+}
+
+
+
+/*
+***************************************************************
+*
+* 18. Post page 
+*
+***************************************************************
+*/
+
+
+// Stnadard post page 
+
+.postpage_entry .post_thumb {
+
+    margin-bottom:30px;
+}
+
+.postpage_entry .post_title h2 {
+
+    font-size:34px;
+    text-transform:capitalize;
+    font-weight:bold;
+    margin-bottom:30px;
+    padding-bottom:0;
+}
+
+.postpage_entry .post_title h2::after {
+
+    content:'';
+    border:none;
+    display:none;
+}
+
+
+// Meta in single page 
+
+
+.postpage_entry .meta {
+
+    margin-bottom:30px;
+}
+
+.postpage_entry .post_meta {
+
+    margin:0;
+}
+
+.postpage_entry .post_meta li a,
+.postpage_entry .post_meta li {
+
+    text-transform:capitalize;
+    color:$special_purpose_color;
+    font-size: 16px;
+    letter-spacing:0;
+}
+
+.postpage_entry .post_meta li a:hover {
+
+    color:$secondary_color;
+}
+
+
+// Tags styles 
+
+
+.entry_tags {
+
+    margin: 30px 0;
+}
+
+.post_tags a {
+     
+    position:relative;       
+    display:inline-block;
+    background:$secondary_color;
+    padding: 4px 30px;
+    margin:2px;
+    text-transform:capitalize;
+    color:$white;  
+}
+
+.post_tags a::before {
+
+    content:'\f02e';
+    font-family:'fontAwesome';
+    @include position_absolute(50%, unset, 10px, unset);
+}
+
+
+.post_tags a:hover {
+
+    background:$primary_color;
+}
+
+
+
+// Post sharing 
+
+
+.post_sharing {
+
+    margin-top:60px;
+}
+
+.post_sharing span,
+.related_posts .section_title span {
+    
+    position:relative;
+    font-size:18px;
+    font-weight:bold;
+    text-transform:uppercase;
+    display:block;
+    letter-spacing:1.35px;
+    padding-bottom:15px;
+    line-height:1;
+}
+
+.post_sharing span:after,
+.related_posts .section_title span::after {
+
+    content:'';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: 0;
+    width: 70px;
+    border-bottom: 2px solid $secondary_color;
+}
+
+.post_sharing ul {
+
+    margin-top:30px;
+}
+
+.post_sharing ul li {
+
+    margin-right:10px;
+}
+
+.post_sharing ul li:last-child {
+
+    margin-right:0;
+}
+
+.post_sharing ul li a {
+
+    border:1px solid $border_color;
+    text-align:center;
+    line-height:35px;
+    width:35px;
+    height:35px;
+    font-size:14px;
+}
+
+
+// Author box 
+
+
+.author_box {
+
+    margin:60px 0;
+    padding: 30px;
+    border-radius: 0;
+    border:1px solid $border_color;
+}
+
+.author_box .author_thumb img {
+
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid $border_color;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center center;
+    object-position: center center;
+}
+
+.author_box .author_name h3 {
+
+    font-size:27px;
+    text-transform:capitalize;
+}
+
+.author_box .author_name,
+.author_box  .author_desc p {
+
+    margin-bottom:10px;
+}
+
+.author_box  .author_social ul li {
+
+    margin-right:5px;
+}
+
+.author_box  .author_social ul li:last-child {
+
+    margin-right:0;
+}
+
+
+// Post navigation
+
+
+.post-navigation {
+
+    overflow: auto;
+    margin: 60px 0;
+}
+
+.nav-links .nav-previous {
+
+    float: left;
+    text-align: left;
+}
+
+.post-navigation .nav-links .nav-previous a::before {
+
+    content: '\f177';
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.nav-links .nav-next {
+
+    float: right;
+    text-align: right;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+
+    float: left;
+    width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+
+
+.post-navigation .nav-links .nav-next a::after {
+
+    content: '\f178';
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.post-navigation .nav-links .nav-previous a:hover,
+.post-navigation .nav-links .nav-next a:hover {
+
+    color: $secondary_color;
+}
+
+
+// Related Posts 
+
+.related_posts .section_title {
+
+    text-align:left;
+}
+
+.related_posts .mb_rp_grid_style .card_content {
+
+    padding: 30px 0 0 0;
+}
+
+.related_posts .mb_rp_grid_style .card {
+
+    text-align:left;
+}
+
+.related_posts .mb_rp_grid_style .post_title h3 {
+
+    font-size:$typo_big;
+}
+
+.related_posts .mb_rp_grid_style ul.post-categories {
+
+    margin-bottom:10px;
+}
+
+.related_posts .mb_rp_grid_style ul.post-categories li a {
+
+    background:none;
+    border:none;
+    text-transform:uppercase;
+    color:$secondary_color;
+    letter-spacing:0.35px;
+    padding:0;
+    margin-right:10px;
+
+    &:hover {
+
+        color:$primary_color;
+        background:none;
+        border:none;
+    }
+}
+
+.related_posts .mb_rp_grid_style ul.post-categories li:last-child a {
+
+    margin-right:0;
+}
+
+.related_posts .mb_rp_grid_style .post_title h3::after {
+
+    content:'';
+    margin:0;
+}
+
+
+
+/*
+----------------------------------------------------------------
+*
+* 18.1 Post page post formate Gallery  
+*
+----------------------------------------------------------------
+*/
+
+
+.post_media .type_gallery_carousel .owl-nav {
+
+    position:absolute;
+    right:30px;
+    top:30px;
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 18.2 Post page post formate Link
+*
+----------------------------------------------------------------
+*/
+
+.post_media.link_formate {
+
+    border:1px solid $border_color;
+    padding:30px;
+}
+
+.post_media.link_formate a {
+    
+    position:relative;
+    display:inline-block;
+    text-transform:capitalize;
+    letter-spacing:1.5px;
+    line-height:1px;
+    padding-left:40px;
+}
+
+.post_media.link_formate a::before {
+
+    content:'\f0c1';
+    font-family:'fontAwesome';
+    font-size:28px;
+    @include position_absolute(50%,unset,0,unset);
+}
+
+
+
+/*
+----------------------------------------------------------------
+*
+* 18.3 Post page post formate video & Audio
+*
+----------------------------------------------------------------
+*/
+
+
+.video_formate iframe,
+.video_formate video,
+.audio_formate iframe,
+.audio_formate audio {
+
+    display:block;
+    border:none;
+    min-height:400px;
+    max-width:100%;
+    width:100%;
+}
+
+.audio_formate iframe {
+
+    min-height:250px;
+}
+
+.audio_formate audio {
+
+    min-height:30px;
+}
+
+
+/*
+----------------------------------------------------------------
+*
+* 18.4 Post page post formate Quote 
+*
+----------------------------------------------------------------
+*/
+
+
+.quote_formate blockquote {
+
+    display:block;
+    position:relative;
+    padding: 40px 0 40px 50px;
+    font-style:italic;
+    font-weight:normal;
+    font-size:18px;
+    letter-spacing:1px;
+}
+
+.quote_formate blockquote::before {
+
+    content:'\f10d';
+    font-family:'fontAwesome';
+    position:absolute;
+    z-index: -1;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:110px;
+    color:#eee;
+}
+
+
+
+/*
+***************************************************************
+*
+* 19. All default widget  
+*
+***************************************************************
+*/
+
+
+
+.widget_archive ul,
+.widget_categories ul,
+.widget_recent_entries ul,
+.widget_meta ul,
+.widget_recent_comments ul,
+.widget_rss ul,
+.widget_pages ul,
+.widget_nav_menu ul,
+.widget_product_categories ul,
+.woocommerce-widget-layered-nav ul {
+
+    list-style: disc;
+    margin: 0;
+    padding-left:20px;
+    overflow:hidden;
+}
+
+.woocommerce .woocommerce-widget-layered-nav-list {
+
+    list-style:none;
+}
+
+.widget_product_categories ul {
+
+    margin-left: 0;
+}
+
+.widget_archive li,
+.widget_categories li,
+.widget_recent_entries li,
+.widget_meta li,
+.widget_recent_comments li,
+.widget_rss li,
+.widget_pages li,
+.widget_nav_menu li a,
+.widget_product_categories li,
+.woocommerce-widget-layered-nav ul li,
+.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-widget-layered-nav-list__item {
+
+    position: relative;
+    border-bottom: 1px solid $border_color;
+    padding: 15px 0;
+    margin: 0;
+}
+
+
+.widget_archive li:last-child,
+.widget_categories li:last-child,
+.widget_recent_entries li:last-child,
+.widget_meta li:last-child,
+.widget_recent_comments li:last-child,
+.widget_rss li:last-child,
+.widget_pages li:last-child,
+.widget_nav_menu li:last-child,
+.widget_product_categories li:last-child,
+.widget_nav_menu>ul>li:last-child a,
+.woocommerce-widget-layered-nav ul li:last-child {
+
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.widget_archive ul li:first-child,
+.widget_categories ul li:first-child,
+.widget_product_categories ul li:first-child,
+.widget_pages ul li:first-child,
+.widget_meta ul li:first-child,
+.widget_rss li:first-child,
+.widget_recent_entries li:first-child,
+.widget_recent_comments li:first-child,
+.woocommerce-widget-layered-nav ul li:first-child {
+
+    padding-top: 0;
+}
+
+.widget_archive a,
+.widget_categories a,
+.widget_recent_entries a,
+.widget_meta a,
+.widget_recent_comments li,
+.widget_rss li,
+.widget_pages li,
+.widget_nav_menu a,
+.widget_product_categories a,
+.woocommerce-widget-layered-nav ul li a {
+
+    padding-left: 0;
+    position: relative;
+    @include transation_delay();
+}
+
+
+// Hover effect on widgets
+
+
+.widget_archive a:hover,
+.widget_categories a:hover,
+.widget_recent_entries a:hover,
+.widget_meta a:hover,
+.widget_product_categories a:hover,
+.widget_rss li a:hover,
+.widget_pages li a:hover,
+.widget_nav_menu li a:hover,
+.woocommerce-widget-layered-nav ul li a:hover {
+
+    color: $primary_color;
+}
+
+
+// Spacing ( pading left ) on widgets
+
+
+.widget_recent_entries a {
+
+    display: block;
+}
+
+.widget_recent_comments li a {
+
+    display: inline-block;
+}
+
+.widget_nav_menu li a {
+
+    padding-left: 0;
+    display: block;
+}
+
+
+// Align count values to right side 
+
+
+.widget_archive ul li,
+.widget_categories ul li,
+.widget_product_categories ul li,
+.woocommerce-widget-layered-nav ul li {
+
+    text-align:right;
+} 
+
+.widget_archive ul li a,
+.widget_categories ul li a,
+.widget_product_categories ul li a,
+.woocommerce-widget-layered-nav ul li a {
+    
+    display:block;
+    float:left;
+}
+
+
+// Remove child hirerchy 
+
+.widget_nav_menu ul li ul,
+.widget_product_categories ul li ul {
+
+    padding-left: 0;
+}
+
+.widget_product_categories ul li ul {
+
+    padding-top:20px;
+    margin-top:20px;
+    border-top:1px solid $border_color;
+}
+
+
+
+/*
+=======================================
+=
+= Nav menus widget
+=
+===============================================
+*/
+
+
+.widget_nav_menu li:last-child a {
+
+    border-bottom:none;
+}
+
+
+
+/*
+=======================================
+=
+= Recent posts widget 
+=
+===============================================
+*/
+
+
+
+.widget_recent_entries .post-date {
+
+    color: $special_purpose_color;
+    display: block;
+    margin-top: 5px;
+    padding-left: 35px;
+    font-size:14px;
+}
+
+
+
+/*
+=======================================
+=
+= Archive widget
+=
+===============================================
+*/
+
+
+
+.widget_archive label {
+
+    display:block;
+    margin-bottom: 10px;
+}
+
+
+
+/*
+=======================================
+=
+= Category widget
+=
+===============================================
+*/
+
+
+.widget_categories label {
+
+    display:block;
+    margin-bottom: 10px;
+}
+
+
+
+
+/*
+=======================================
+=
+= Rss widget
+=
+===============================================
+*/
+
+
+
+.widget_rss .widget-title h3 a {
+
+    color:$white;
+
+    &:hover {
+
+        color:$primary_color;
+    }
+}
+
+.widget_rss .widget-title h3 img {
+
+    display:none;
+}
+
+.widget_rss ul li a {
+
+    color:$secondary_color;
+
+    &:hover {
+
+        color:$primary_color;
+    }
+}
+
+
+
+/*
+=======================================
+=
+= Search widget 
+=
+===============================================
+*/
+
+
+.widget_search {
+
+    @extend .header_search;
+    display:block;
+}
+
+.widget_search,
+.widget_search form {
+    
+    display:block;
+    position:relative;
+    z-index:5;
+    left:auto;
+    top:auto;
+    right:auto;
+    box-shadow:none;
+    padding: 0;
+    border-top: none;
+    animation:none;
+    margin:0;
+    border-top:none;
+    padding: 0;
+    animation:none;
+    box-shadow:none;
+    background:transparent;
+}
+
+.widget_search form input[type="submit"] {
+
+    width:100px;
+}
+
+.widget_search form input[type="search"] {
+
+    width:calc( 100% - 100px);
+}
+
+
+
+/*
+=======================================
+=
+= Calender widget
+=
+===============================================
+*/
+
+
+.calendar_wrap caption {
+
+    background: none repeat scroll 0 0 $secondary_color;
+    color: $white;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.calendar_wrap table {
+
+    border-collapse: collapse;
+    width: auto;
+}
+
+.calendar_wrap table th {
+
+    border: 1px solid $border_color;
+    font-weight: bold;
+    padding: 8px 0px;
+    text-align: center;
+    width: 5%
+}
+
+.calendar_wrap table td {
+
+    border: 1px solid $border_color;
+    padding: 8px 0px;
+    width: 5%;
+    text-align: center;
+}
+
+.calendar_wrap table td#prev,
+.calendar_wrap table td#next {
+
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.calendar_wrap table td#next {
+
+    text-align: right;
+}
+
+
+
+/*
+=======================================
+=
+= Text widget
+=
+===============================================
+*/
+
+
+
+aside .widget_text,
+#canvas-aside .widget_text,
+footer .widget_text  {
+
+    .textwidget {
+
+        strong,
+        p,
+        em,
+        pre,
+        code,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+
+            display: block;
+            padding: 7px 0;
+        }
+
+        img {
+
+            display: block;
+            padding: 5px 0;
+        }
+
+        select {
+
+            display: block;
+            outline: none;
+            width: 100%;
+            max-width: 100%;
+            padding: 10px;
+            text-transform: capitalize;
+            border-radius: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            option {
+
+                display: block;
+                width:100%;
+                max-width: 100%;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+
+
+/*
+=======================================
+=
+= Tags cloud
+=
+===============================================
+*/
+
+
+.widget_tag_cloud .tagcloud {
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin:-5px -2px;
+}
+
+.widget_tag_cloud .tagcloud a {
+    
+    flex: 1 auto;
+    text-transform:capitalize;
+    font-size:15px !important;
+    text-align:center;
+    letter-spacing:0;
+    padding: 5px 15px;
+    margin:2px;
+    background:#eeeeee;
+    font-weight:400;
+
+    &:hover {
+        
+        color:$white;
+        background:$primary_color;
+    }
+}
+
+
+/*
+========================================
+=
+= Woocommerce cart widget
+=
+====================================================
+*/
+
+.woocommerce ul.cart_list, 
+.woocommerce ul.product_list_widget {
+
+    @include flex_row_alt();
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.woocommerce .widget_shopping_cart .cart_list li, 
+.woocommerce.widget_shopping_cart .cart_list li,
+.woocommerce ul.product_list_widget li {
+
+    @include flex_col(100%);
+    position:relative;
+    padding: 15px 0 15px 40px;
+    border-bottom: 1px solid $border_color;
+}
+
+
+.woocommerce.widget_shopping_cart .cart_list li a.remove {
+
+    @include position_absolute(50%,unset,0,unset);
+
+}
+
+.woocommerce ul.cart_list li a, 
+.woocommerce ul.product_list_widget li a {
+
+    font-weight:normal;
+    font-size:16px;
+}
+
+
+.woocommerce .widget_shopping_cart .total, 
+.woocommerce.widget_shopping_cart .total {
+
+    border:none;
+    margin: 20px 0;
+}
+
+.woocommerce .widget_shopping_cart .total strong, 
+.woocommerce.widget_shopping_cart .total strong {
+
+    font-weight:600;
+}
+
+
+/*
+========================================
+=
+= Woocommerce Top rated products widget
+=
+====================================================
+*/
+
+
+.woocommerce ul.product_list_widget li {
+
+    padding-left:0;
+}
+
+
+
+
+/*
+============================================
+=
+= Woocommerce filter by attribute widget
+=
+===========================================================
+*/
+
+.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-widget-layered-nav-list__item {
+
+    position:relative;
+    padding-left:20px;
+} 
+
+.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-widget-layered-nav-list__item::before {
+    
+    content:"\f111";
+    font-family: "FontAwesome";
+    font-size:7px;
+    color:$primary_color;
+    position:absolute;
+    left:0;
+    top:50%;
+    -moz-transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+    -o-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    transform:translateY(-50%);
+
+}
+
+
+/*
+============================================
+=
+= Woocommerce filter by price widget
+=
+===========================================================
+*/
+
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle, 
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range {
+
+    background-color:$secondary_color;
+}
+
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
+
+    background-color:#585858;
+}
+
+/*
+***************************************************************
+*
+* 20. Comment box 
+*
+***************************************************************
+*/
+
+
+#comments {
+
+    margin-top: 40px;
+}
+
+
+#comments footer {
+
+    background: transparent;
+}
+
+#comments h2.comments-title {
+
+    position: relative;
+    font-size: $typo_big;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#comments h2.comments-title:after {
+
+    content: '';
+    position: absolute;
+    border-bottom: 3px solid $secondary_color;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+}
+
+
+#comments div#respond {
+
+    padding: 20px 0;
+    margin-bottom:40px;
+    background: transparent;
+}
+
+
+#comments div#respond h3#reply-title {
+
+    position: relative;
+    font-size: 24px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#comments div#respond h3#reply-title::after {
+
+    content: '';
+    position: absolute;
+    border-bottom: 3px solid $secondary_color;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+}
+
+#comments form p.comment-notes {
+
+    padding-bottom: 30px;
+    display: block;
+}
+
+#comments form label {
+
+    display: block;
+    padding-bottom: 15px;
+    margin: 0;
+    font-weight: 400;
+    color: $primary_color;
+}
+
+#comments form input,
+#comments form textarea {
+
+    position: relative;
+    height: 38px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    color: $special_purpose_color;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    border: 1px solid $border_color;
+    border-radius: 3px;
+    outline: none;
+}
+
+
+#comments form textarea {
+
+    height: 150px;
+    border-radius: 5px;
+}
+
+#comments form input[type="submit"] {
+
+    margin: 20px 0 0 0;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+#comments form input[type="submit"] {
+
+    display: inline-block;
+    width: 150px;
+    background: $secondary_color;
+    color: $white;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid $secondary_color;
+    border-radius: 3px;
+    padding: 0;
+    line-height: inherit;
+}
+
+#comments form input[type="submit"]:hover {
+
+    background: $primary_color;
+    color: $white;
+    border: 1px solid $primary_color;
+}
+
+#comments ul,
+#comments ol {
+
+   list-style:none; 
+}
+
+#comments ol.comment-list {
+    
+    margin: 40px 0;
+}
+
+#comments ol.comment-list li {
+
+    border: 1px solid $border_color;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+#comments ol.comment-list li ol {
+
+    margin: 30px;
+}
+
+#comments ol.comment-list li article footer.comment-meta {
+
+    padding-bottom: 20px;
+}
+
+
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard img {
+
+    border: 2px solid $border_color;
+    border-radius: 50%;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard b a,
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard b,
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard span {
+
+    position: relative;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: $special_purpose_color !important;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard span {
+
+    padding-left: 25px;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard span::before {
+
+    content: '\f0e6';
+    font-family: 'fontAwesome';
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-right: 5px;
+}
+
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata {
+
+    padding-left: 40px;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata a {
+
+    text-transform: uppercase;
+    font-size: 12px;
+    padding-right: 10px;
+    font-weight: 400;
+    color: $special_purpose_color;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata span.edit-link a {
+
+    position: relative;
+    padding-left: 15px;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata span.edit-link a:before {
+
+    content: '\f121';
+    font-family: 'fontAwesome';
+    position: absolute;
+    left: 0;
+    top: -3px;
+    padding-right: 10px;
+}
+
+#comments ol.comment-list li article .comment-content {
+
+    padding-bottom: 20px;
+}
+
+#comments ol.comment-list li article .comment-content p {
+
+    line-height: 1.5;
+}
+
+#comments ol.comment-list li article .comment-content p a {
+
+    color: $primary_color;
+    font-weight: 500;
+}
+
+#comments ol.comment-list li article .reply a {
+
+    position: relative;
+    display: inline-block;
+    padding-left: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $special_purpose_color;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#comments ol.comment-list li article .reply a:before {
+
+    content: '\f112';
+    font-family: 'fontAwesome';
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-right: 10px;
+}
+
+#comments p.comment-form-cookies-consent {
+
+    text-align:left;
+    margin-top:10px;
+
+    input[type="checkbox"] {
+
+        display:inline-block;
+        width:13px;
+        height:13px;
+    }
+
+    label {
+
+        display:inline-block;
+        padding-left:15px;
+        line-height:13px;
+    }
+}
+
+
+/*
+***************************************************************
+*
+* 21. Contact form 7
+*
+***************************************************************
+*/
+
+
+.wpcf7 label {
+
+    display: block;
+    margin-bottom: 15px;
+}
+
+.wpcf7 input[type="text"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="url"],
+.wpcf7 input[type="password"],
+.wpcf7 input[type="search"],
+.wpcf7 textarea,
+.wpcf7 select {
+
+    width: 100%;
+    padding: 7px;
+    margin-top: 10px;
+    border: 1px solid $border_color;
+    border-radius:3px;
+}
+
+.wpcf7 input[type="submit"],
+.wpcf7 input[type="button"] {
+
+    background-color: $secondary_color;
+    border: 1px solid $secondary_color;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    font-size: 14px;
+    color: $white;
+    @include transation_delay();
+}
+
+.wpcf7 input[type="submit"]:hover,
+.wpcf7 input[type="button"]:hover {
+
+    background: $primary_color;
+    border: 1px solid $primary_color;
+}
