@@ -258,6 +258,11 @@ if ( ! function_exists( 'mocho_blog_recommended_plugins' ) ) :
                 'slug'     => 'everest-toolkit',
                 'required' => false,
             ),
+            array(
+                'name'     => esc_html__( 'Contact Form by WPForms – Drag & Drop Form Builder for WordPress', 'mocho-blog' ),
+                'slug'     => 'wpforms-lite',
+                'required' => false,
+            ),
         );
 
         tgmpa( $plugins );

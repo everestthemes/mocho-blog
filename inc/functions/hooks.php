@@ -143,7 +143,7 @@ if( !function_exists( 'mocho_blog_logo_action' ) ) {
         <div class="site_idty_entry">
             <div class="logo">
                 <?php if( has_custom_logo() ) : the_custom_logo(); else : ?>
-                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                <span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
                 <?php 
                 $mocho_blog_description = get_bloginfo( 'description', 'display' );
                 if ( $mocho_blog_description || is_customize_preview() ) :

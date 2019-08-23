@@ -21,6 +21,11 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php
+if( class_exists( 'wp_body_open' ) ) { 
+    wp_body_open(); 
+}
+?>
 <div class="page_wrap">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mocho-blog' ); ?></a>
 
