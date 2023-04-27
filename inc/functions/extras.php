@@ -233,7 +233,7 @@ if( !function_exists( 'mocho_blog_search_form' ) ) :
      * @since 1.0.0
      */
     function mocho_blog_search_form() {
-        $form = '<form role="search" method="get" id="search-form" class="clearfix" action="' . esc_url( home_url( '/' ) ) . '"><input type="search" name="s" placeholder="' . esc_attr__( 'Type Something', 'mocho-blog' ) . '" value"' . get_search_query() . '" ><input type="submit" id="submit" value="'. esc_attr__( 'Search', 'mocho-blog' ).'"></form>';
+        $form = '<form role="search" method="get" id="search-form" class="clearfix" action="' . esc_url( home_url( '/' ) ) . '"><input type="search" name="s" placeholder="' . esc_attr__( 'Type Something', 'mocho-blog' ) . '" value="' . esc_attr( get_search_query() ) . '" ><input type="submit" id="submit" value="'. esc_attr__( 'Search', 'mocho-blog' ).'"></form>';
 
         return $form;
     }

@@ -56,14 +56,14 @@
 	                            <div class="card_content">
 	                                <?php mocho_blog_post_categories(); ?>
 	                                <div class="post_title">
-	                                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	                                    <h2><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></h2>
 	                                </div><!-- .title -->
 	                                <?php
 	                                $button_title = get_theme_mod( 'mocho_blog_banner_button_title', 'Read More' );
 	                                if( !empty( $button_title ) ) {
 	                                    ?>
 	                                    <div class="the_permalink">
-	                                        <a class="btn_general" href="<?php the_permalink(); ?>"><?php echo esc_html( $button_title ); ?></a>
+	                                        <a class="btn_general" href="<?php esc_url( the_permalink() ); ?>"><?php echo esc_html( $button_title ); ?></a>
 	                                    </div><!-- .the_permalink -->
 	                                    <?php
 	                                }
@@ -114,17 +114,17 @@
 		                <div class="card">
 		                    <?php if( has_post_thumbnail() ) : ?>
 		                    <div class="post_thumb imghover">
-		                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'mocho-blog-thubmnail-2', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
+		                        <a href="<?php esc_url( the_permalink() ); ?>"><?php the_post_thumbnail( 'mocho-blog-thubmnail-2', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
 		                    </div><!-- .post_thumb.imghover -->
 		                    <?php endif; ?>
 		                    <div class="card_content">
 		                        <?php mocho_blog_post_categories(); ?>
 		                        <div class="post_title">
-		                            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		                            <h2><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></h2>
 		                        </div><!-- .post_title -->
 		                        <div class="meta">
 		                            <ul class="post_meta">
-		                                <li class="posted_date"><?php esc_html_e( 'On - ', 'mocho-blog' ); ?><a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a></li>
+		                                <li class="posted_date"><?php esc_html_e( 'On - ', 'mocho-blog' ); ?><a href="<?php esc_url( the_permalink() ); ?>"><?php echo get_the_date(); ?></a></li>
 		                            </ul><!-- .post_meta -->
 		                        </div><!-- .meta -->
 		                    </div><!-- .card_content -->

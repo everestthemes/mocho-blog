@@ -35,7 +35,7 @@ get_header();
                                 	<h2>
 	                                    <?php
 										/* translators: %s: search query. */
-										printf( esc_html__( 'Search Results for: %s', 'mocho-blog' ), '<span>' . get_search_query() . '</span>' );
+										printf( esc_html__( 'Search Results for: %s', 'mocho-blog' ), '<span>' . esc_html( get_search_query() ) . '</span>' );
 										?>
 									</h2>
                                 </div><!-- .page_title.lined_page_title -->
@@ -48,21 +48,21 @@ get_header();
                                                 <div id="post-<?php the_ID(); ?>" <?php post_class("card bricks_items"); ?>>
                                                     <?php if( has_post_thumbnail() ) : ?>
                                                     <div class="post_thumb imghover">
-                                                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'full', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
+                                                        <a href="<?php esc_url( the_permalink() ); ?>"><?php the_post_thumbnail( 'full', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
                                                     </div><!-- .post_thumb.imghover -->
                                                     <?php endif; ?>
                                                     <div class="card_content">
                                                         <?php mocho_blog_post_categories(); ?>
                                                         <div class="post_title">
-                                                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                                            <h3><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></h3>
                                                         </div><!-- .post_title -->
                                                         <?php 
                                                         if( get_post_type() == 'post' ) { 
                                                             ?>
                                                             <div class="meta">
                                                                 <ul class="post_meta">
-                                                                    <li class="posted_date"><span><?php esc_html_e( 'On - ', 'mocho-blog' ) ?></span><a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a></li>
-                                                                    <li class="posted_by"><span><?php esc_html_e( 'By - ', 'mocho-blog' ); ?></span><a href="<?php the_permalink(); ?>"><?php echo get_the_author(); ?></a></li>
+                                                                    <li class="posted_date"><span><?php esc_html_e( 'On - ', 'mocho-blog' ) ?></span><a href="<?php esc_url( the_permalink() ); ?>"><?php echo get_the_date(); ?></a></li>
+                                                                    <li class="posted_by"><span><?php esc_html_e( 'By - ', 'mocho-blog' ); ?></span><a href="<?php esc_url( the_permalink() ); ?>"><?php echo esc_html( get_the_author() ); ?></a></li>
                                                                 </ul><!-- .post_meta -->
                                                                 </ul><!-- .post_meta -->
                                                             </div><!-- .meta -->

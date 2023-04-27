@@ -44,7 +44,7 @@ if ( ! function_exists( 'mocho_blog_posted_by' ) ) :
 		printf(
 			/* translators: %s: post author. */
 			esc_html_x( 'Posted by: %s', 'post author', 'mocho-blog' ),
-			'<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>'
+			'<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( esc_html( get_the_author() ) ) . '</a>'
 		);
 
 	}

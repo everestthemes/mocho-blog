@@ -97,13 +97,13 @@ if( $related_query->have_posts() && $enable_related_posts == 1 ) :
 		                <div class="card">
 		                    <?php if( has_post_thumbnail() ) : ?>
 		                    <div class="post_media standard imghover">
-		                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'mocho-blog-thubmnail-2', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
+		                        <a href="<?php esc_url( the_permalink() ); ?>"><?php the_post_thumbnail( 'mocho-blog-thubmnail-2', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
 		                    </div><!-- .post_media.standard.imghover -->
 		                    <?php endif; ?>
 		                    <div class="card_content">
 		                        <?php mocho_blog_post_categories(); ?>
 		                        <div class="post_title">
-		                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		                            <h3><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></h3>
 		                        </div><!-- .post_title -->
 		                        <div class="excerpt">
 		                            <?php the_excerpt(); ?>

@@ -66,7 +66,7 @@ class Mocho_Blog_Author_Widget extends WP_Widget {
                         <div class="author_bio">
                             <?php the_excerpt(); ?>
                             <?php if( !empty( $link_title ) ) : ?>
-                            <a href="<?php the_permalink(); ?>"><?php echo esc_html( $link_title ); ?></a>
+                            <a href="<?php esc_url( the_permalink() ); ?>"><?php echo esc_html( $link_title ); ?></a>
                             <?php endif; ?>
                         </div><!-- .author_bio -->
                         <?php if( !empty( $author_signature ) ) : ?>

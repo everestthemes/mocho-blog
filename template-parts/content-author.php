@@ -21,7 +21,7 @@ if( $enable_author_section == true ) {
             <div class="col-md-9 col-sm-9 col-xs-12">
                 <div class="author_details">
                     <div class="author_name">
-                        <h3><?php echo esc_html( get_the_author() ); ?></h3>
+                        <h3><?php echo esc_html( esc_html( get_the_author() ) ); ?></h3>
                     </div><!-- .author_name -->
                     <div class="author_desc">
                         <p><?php echo esc_html( get_the_author_meta( 'description' ) ); ?></p>

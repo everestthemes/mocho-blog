@@ -59,16 +59,16 @@ class Mocho_Blog_Post_Widget extends WP_Widget {
                     <div class="left_box">
                     	<?php if( has_post_thumbnail() ) : ?>
                         <div class="post_thumb imghover">
-                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'mocho-blog-thubmnail-3', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
+                            <a href="<?php esc_url( the_permalink() ); ?>"><?php the_post_thumbnail( 'mocho-blog-thubmnail-3', array( 'alt' => the_title_attribute( array( 'echo' => false ) ) ) ); ?></a>
                         </div><!-- .post_thumb.imghover -->
                     	<?php endif; ?>
                     </div><!-- .left_box -->
                     <div class="right_box">
                         <div class="post_details">
-                            <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                            <h4><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></h4>
                             <div class="meta">
                                 <ul class="post_meta">
-                                    <li class="posted_date"><a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a></li>
+                                    <li class="posted_date"><a href="<?php esc_url( the_permalink() ); ?>"><?php echo get_the_date(); ?></a></li>
                                 </ul><!-- .post_meta -->
                             </div><!-- .meta -->
                         </div><!-- .post_details -->

@@ -4,8 +4,8 @@ Contributors: everestthemes
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, one-column, two-columns, blog, right-sidebar, theme-options, footer-widgets, left-sidebar
 Requires PHP: 5.6
 Requires at least: 4.8.0
-Tested up to: 5.2.2
-Stable tag: 1.0.3
+Tested up to: 6.2
+Stable tag: 1.0.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ Mocho Blog Supports contact form 7.
 
 
 == Changelog ==
+
+= 1.0.4 - April 27, 2023 =
+
+- Compactibilty check with WordPress 6.2
+- Fix: Security issue fixed
 
 = 1.0.3 - August 23, 2019 =
 
